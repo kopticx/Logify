@@ -17,7 +17,7 @@ public class TrackedLogger(ILoggerFactory loggerFactory) : ILogger
     return _logger.IsEnabled(logLevel);
   }
 
-  public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
+  public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception,
     Func<TState, Exception, string> formatter)
   {
     var message = formatter(state, exception);

@@ -44,7 +44,7 @@ public static class LogifyExtensions
   /// <param name="customObject">The custom object to be logged. If the object is of type string, it is logged as a message. Otherwise, it is serialized to JSON and logged.</param>
   /// <param name="exception">The exception associated with the error.</param>
   /// <typeparam name="T">The type of the custom object being logged.</typeparam>
-  public static void LogErrorCustom<T>(this ILogger logger, T customObject, Exception exception)
+  public static void LogErrorCustom<T>(this ILogger logger, T customObject, Exception? exception)
   {
     var type = customObject.GetType();
 
