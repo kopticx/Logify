@@ -4,7 +4,10 @@ namespace Logify.Logging;
 
 public class TrackedLogger(ILoggerFactory loggerFactory) : ILogger
 {
-  private readonly ILogger _logger = loggerFactory.CreateLogger(Environment.GetEnvironmentVariable("loggerName"));
+  private readonly ILogger _logger =
+    loggerFactory.CreateLogger(Environment.GetEnvironmentVariable("loggerName") ??
+                               AppDomain.CurrentDomain.FriendlyName);
+
   public static string ExecutionName { get; set; } = Guid.NewGuid().ToString();
 
   public IDisposable BeginScope<TState>(TState state)
