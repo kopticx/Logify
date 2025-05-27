@@ -13,6 +13,8 @@
             opciones de serialización JSON y admite la integración con Microsoft.Extensions.Logging y Microsoft.Extensions.DependencyInjection.
             Además, ofrece la opción de habilitar o deshabilitar la compilación nativa AOT (Ahead-of-Time).
         </Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/kopticx/Logify</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
