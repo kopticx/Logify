@@ -80,6 +80,7 @@ public static class LogifyExtensions
   /// Logs an error with a custom object and an exception. The custom object is either serialized to JSON or used as a string based on its type and adds a trackerId.
   /// </summary>
   /// <param name="logger">The logger instance used to log the error.</param>
+  /// <param name="message">The message to be logged alongside the custom object.</param>
   /// <param name="customObject">The custom object to be logged. If the object is of type string, it is logged as a message. Otherwise, it is serialized to JSON and logged.</param>
   /// <param name="exception">The exception to be logged along with the custom object.</param>
   /// <typeparam name="T">The type of the custom object being logged.</typeparam>
