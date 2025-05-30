@@ -10,10 +10,10 @@
         <PackageId>Kopticx.Logify</PackageId>
         <Version>1.0.0</Version>
         <Authors>Kopticx</Authors>
-        <Description>Este proyecto es una biblioteca de servicios de registro (logging) en C# que proporciona una implementación
-            personalizada de ILogger y extensiones para el registro de mensajes en formato JSON. La biblioteca permite configurar
-            opciones de serialización JSON y admite la integración con Microsoft.Extensions.Logging y Microsoft.Extensions.DependencyInjection.
-            Además, ofrece la opción de habilitar o deshabilitar la compilación nativa AOT (Ahead-of-Time).
+        <Description>This project is a logging service library in C# that provides a custom implementation
+            custom implementation of ILogger and extensions for logging messages in JSON format. The library allows you to configure
+            JSON serialization options and supports integration with Microsoft.Extensions.Logging and Microsoft.Extensions.DependencyInjection.
+            In addition, it offers the option to enable or disable native AOT (Ahead-of-Time) compilation.
         </Description>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
