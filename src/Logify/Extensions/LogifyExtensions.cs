@@ -14,11 +14,16 @@ public static class LogifyExtensions
   }
 
   /// <summary>
-  /// Logs information with a custom object. The custom object is either serialized to JSON or used as a string based on its type and adds a trackerId.
+  /// Logs an informational message using a custom object. 
+  /// If the object is a string, it is logged as-is; otherwise, it is serialized to JSON.
+  /// A tracker ID is automatically included in the log.
   /// </summary>
-  /// <param name="logger">The logger instance used to log the information.</param>
-  /// <param name="customObject">The custom object to be logged. If the object is of type string, it is logged as a message. Otherwise, it is serialized to JSON and logged.</param>
-  /// <typeparam name="T">The type of the custom object being logged.</typeparam>
+  /// <typeparam name="T">The type of the custom object to log.</typeparam>
+  /// <param name="logger">The <see cref="ILogger"/> instance used for logging.</param>
+  /// <param name="customObject">
+  /// The object to log. If it is a <see cref="string"/>, it will be logged directly; 
+  /// otherwise, it will be serialized to JSON before logging.
+  /// </param>
   public static void LogInformationCustom<T>(this ILogger logger, T customObject)
   {
     var type = customObject.GetType();
@@ -38,12 +43,17 @@ public static class LogifyExtensions
   }
 
   /// <summary>
-  /// Logs information with a custom object and an accompanying message. The custom object is either serialized to JSON or used as a string based on its type and adds a trackerId.
+  /// Logs an informational message with an accompanying message and a custom object. 
+  /// If the object is a string, it is logged as-is; otherwise, it is serialized to JSON.
+  /// A tracker ID is automatically included in the log.
   /// </summary>
-  /// <param name="logger">The logger instance used to log the information.</param>
-  /// <param name="message">The message to be logged alongside the custom object.</param>
-  /// <param name="customObject">The custom object to be logged. If the object is of type string, it is logged as a message. Otherwise, it is serialized to JSON and logged.</param>
-  /// <typeparam name="T">The type of the custom object being logged.</typeparam>
+  /// <typeparam name="T">The type of the custom object to log.</typeparam>
+  /// <param name="logger">The <see cref="ILogger"/> instance used for logging.</param>
+  /// <param name="message">A custom message to include with the log entry.</param>
+  /// <param name="customObject">
+  /// The object to log. If it is a <see cref="string"/>, it will be logged directly;
+  /// otherwise, it will be serialized to JSON before logging.
+  /// </param>
   public static void LogInformationCustom<T>(this ILogger logger, string message, T customObject)
   {
     var customMessageJson = GetMessageObject(message, customObject);
@@ -52,12 +62,17 @@ public static class LogifyExtensions
   }
 
   /// <summary>
-  /// Logs an error with a custom object and an accompanying exception. The custom object is either serialized to JSON or used as a string based on its type and adds a trackerId.
+  /// Logs an error message with a custom object and an associated exception. 
+  /// If the object is a string, it is logged as-is; otherwise, it is serialized to JSON.
+  /// A tracker ID is automatically included in the log.
   /// </summary>
-  /// <param name="logger">The logger instance used to log the error.</param>
-  /// <param name="customObject">The custom object to be logged. If the object is of type string, it is logged as a message. Otherwise, it is serialized to JSON and logged.</param>
-  /// <param name="exception">The exception associated with the error.</param>
-  /// <typeparam name="T">The type of the custom object being logged.</typeparam>
+  /// <typeparam name="T">The type of the custom object to log.</typeparam>
+  /// <param name="logger">The <see cref="ILogger"/> instance used for logging.</param>
+  /// <param name="customObject">
+  /// The object to log. If it is a <see cref="string"/>, it will be logged directly;
+  /// otherwise, it will be serialized to JSON before logging.
+  /// </param>
+  /// <param name="exception">The <see cref="Exception"/> to be logged alongside the custom object.</param>
   public static void LogErrorCustom<T>(this ILogger logger, T customObject, Exception? exception)
   {
     var type = customObject.GetType();
@@ -77,13 +92,18 @@ public static class LogifyExtensions
   }
 
   /// <summary>
-  /// Logs an error with a custom object and an exception. The custom object is either serialized to JSON or used as a string based on its type and adds a trackerId.
+  /// Logs an error message with a descriptive message, a custom object, and an associated exception. 
+  /// If the object is a string, it is logged as-is; otherwise, it is serialized to JSON.
+  /// A tracker ID is automatically included in the log.
   /// </summary>
-  /// <param name="logger">The logger instance used to log the error.</param>
-  /// <param name="message">The message to be logged alongside the custom object.</param>
-  /// <param name="customObject">The custom object to be logged. If the object is of type string, it is logged as a message. Otherwise, it is serialized to JSON and logged.</param>
-  /// <param name="exception">The exception to be logged along with the custom object.</param>
-  /// <typeparam name="T">The type of the custom object being logged.</typeparam>
+  /// <typeparam name="T">The type of the custom object to log.</typeparam>
+  /// <param name="logger">The <see cref="ILogger"/> instance used for logging.</param>
+  /// <param name="message">A custom message to include with the log entry.</param>
+  /// <param name="customObject">
+  /// The object to log. If it is a <see cref="string"/>, it will be logged directly;
+  /// otherwise, it will be serialized to JSON before logging.
+  /// </param>
+  /// <param name="exception">The <see cref="Exception"/> to be logged alongside the message and object.</param>
   public static void LogErrorCustom<T>(this ILogger logger, string message, T customObject, Exception? exception)
   {
     var customMessageJson = GetMessageObject(message, customObject);
